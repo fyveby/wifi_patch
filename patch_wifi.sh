@@ -3,8 +3,9 @@
 # This bash script will patch wifi problems on Stratus RPIs
 
 # 1) git clone wifi patch repo
-git clone https://github.com/fyveby/wifi_patch
+#git clone https://github.com/fyveby/wifi_patch
 
+sudo nmcli dev wifi connect FyveByWifi password "password" ifname wlan0 hidden yes
 
 # 1) Add blacklist brcmfmac to file /etc/modprobe.d/raspi-blacklist.conf
 LINE="blacklist brcmfmac"
@@ -24,4 +25,4 @@ fi
 sudo iw reg set US
 
 # 3) Copy Ucodes to /lib/firmware
-sudo cp wifi_patch/ucodes/iwlwifi-*.ucode /lib/firmware
+sudo cp ucodes/iwlwifi-*.ucode /lib/firmware
